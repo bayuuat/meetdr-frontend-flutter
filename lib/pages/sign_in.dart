@@ -139,7 +139,7 @@ class SignInPage extends StatelessWidget {
         width: double.infinity,
         margin: EdgeInsets.only(top: 50),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, '/home'),
           style: TextButton.styleFrom(
             backgroundColor: primaryTextColor,
             shape: RoundedRectangleBorder(
