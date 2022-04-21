@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:meetdr/model/user_model.dart';
+import 'package:meetdr/providers/auth_provider.dart';
 import 'package:meetdr/theme.dart';
 import 'package:meetdr/widget/banner_card.dart';
 import 'package:meetdr/widget/doctor_tile.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     Widget header() {
       return Container(
         margin: EdgeInsets.only(
@@ -35,7 +41,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Bayu Aditya',
+                    user.name,
                     style: blackText.copyWith(
                       fontSize: 21,
                     ),

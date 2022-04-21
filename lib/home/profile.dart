@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:meetdr/model/user_model.dart';
+import 'package:meetdr/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:meetdr/theme.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
+    // bool _loaded = false;
+    // var img = Image.network(user.image);
+    // var placeholder = AssetImage('assets/image_shop_logo.png');
+
     Widget header() {
       return Image.asset(
         'assets/image_background.png',
@@ -24,38 +33,6 @@ class ProfilePage extends StatelessWidget {
             Icon(
               Icons.chevron_right,
               color: secondaryTextColor,
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget ProfileMenuItem(String iconUrl, String title) {
-      return Container(
-        margin: EdgeInsets.only(
-          bottom: 30,
-        ),
-        child: Row(
-          children: [
-            Image.asset(
-              iconUrl,
-              width: 24,
-              color: primaryColor,
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Text(
-              title,
-              style: blackText.copyWith(
-                fontSize: 18,
-                fontWeight: semiBold,
-              ),
-            ),
-            Spacer(),
-            Icon(
-              Icons.chevron_right,
-              color: primaryColor,
             ),
           ],
         ),
@@ -155,15 +132,22 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(
-                  'assets/image_shop_logo.png',
-                  width: 120,
+                ClipOval(
+                  child: (user.image != null)
+                      ? Image.network(
+                          user.image,
+                          width: 120,
+                        )
+                      : Image.asset(
+                          'assets/image_shop_logo.png',
+                          width: 120,
+                        ),
                 ),
                 SizedBox(
                   height: 32,
                 ),
                 Text(
-                  'Bayu Aditya',
+                  user.name,
                   style: blackText.copyWith(
                     fontSize: 24,
                     fontWeight: medium,

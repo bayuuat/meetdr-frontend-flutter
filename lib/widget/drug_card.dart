@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meetdr/model/drug.dart';
+import 'package:meetdr/model/drug_model.dart';
 
 class DrugCard extends StatelessWidget {
   final Drug drug;

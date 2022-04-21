@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:meetdr/model/drug.dart';
+import 'package:meetdr/model/drug_model.dart';
 import 'package:meetdr/theme.dart';
 import 'package:meetdr/widget/drug_card.dart';
 
