@@ -62,7 +62,7 @@ class _SignUpPageState extends State<SignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Sign Up',
+              'Registration',
               style: primaryText.copyWith(
                 fontWeight: semiBold,
                 fontSize: 24,
@@ -81,22 +81,28 @@ class _SignUpPageState extends State<SignUpPage> {
       );
     }
 
+    Widget photo() {
+      return Container(
+        margin: EdgeInsets.only(top: 30),
+        child: Column(
+          children: [
+            ClipOval(
+              child: Image.asset(
+                'assets/image_shop_logo.png',
+                width: 100,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     Widget nameInput() {
       return Container(
-        margin: EdgeInsets.only(top: 50),
+        margin: EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Full Name',
-              style: subtitleText.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
             Container(
               height: 50,
               padding: EdgeInsets.symmetric(
@@ -120,59 +126,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       style: blackText,
                       controller: nameController,
                       decoration: InputDecoration.collapsed(
-                        hintText: 'Your full name',
-                        hintStyle: subtitleText,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    Widget usernameInput() {
-      return Container(
-        margin: EdgeInsets.only(top: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Username',
-              style: subtitleText.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Container(
-              height: 50,
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              decoration: BoxDecoration(
-                color: bgColor2,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/icon_name.png',
-                    width: 17,
-                  ),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                      style: blackText,
-                      controller: usernameController,
-                      decoration: InputDecoration.collapsed(
-                        hintText: 'Your username',
+                        hintText: 'Name',
                         hintStyle: subtitleText,
                       ),
                     ),
@@ -191,16 +145,6 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Email Address',
-              style: subtitleText.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
             Container(
               height: 50,
               padding: EdgeInsets.symmetric(
@@ -224,7 +168,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       style: blackText,
                       controller: emailController,
                       decoration: InputDecoration.collapsed(
-                        hintText: 'Your email address',
+                        hintText: 'Email ID',
                         hintStyle: subtitleText,
                       ),
                     ),
@@ -243,16 +187,6 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Password',
-              style: subtitleText.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
             Container(
               height: 50,
               padding: EdgeInsets.symmetric(
@@ -277,7 +211,93 @@ class _SignUpPageState extends State<SignUpPage> {
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration.collapsed(
-                        hintText: 'Your password',
+                        hintText: 'Password',
+                        hintStyle: subtitleText,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget repasswordInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              decoration: BoxDecoration(
+                color: bgColor2,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon_lock.png',
+                    width: 17,
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      style: blackText,
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration.collapsed(
+                        hintText: 'Confirm Password',
+                        hintStyle: subtitleText,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget phoneInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              decoration: BoxDecoration(
+                color: bgColor2,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon_phone.png',
+                    width: 17,
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      style: blackText,
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration.collapsed(
+                        hintText: 'Enter Mobile',
                         hintStyle: subtitleText,
                       ),
                     ),
@@ -353,13 +373,14 @@ class _SignUpPageState extends State<SignUpPage> {
             horizontal: defaultMargin,
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               header(),
+              photo(),
               nameInput(),
-              usernameInput(),
               emailInput(),
               passwordInput(),
+              repasswordInput(),
+              phoneInput(),
               isLoading ? LoadingButton() : signUpButton(),
               Spacer(),
               footer(),
